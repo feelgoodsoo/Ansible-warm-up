@@ -1,0 +1,12 @@
+---
+- name: httpd and mariadb are running
+  hosts: 192.168.56.108
+  tasks:
+    - name: http is running
+      service:
+        name: httpd
+        state: started
+    - name: mariadb is running
+      service:
+        name: mariadb
+        state: started

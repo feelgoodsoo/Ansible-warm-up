@@ -1,0 +1,17 @@
+---
+- name: Latest version of notapkg is installed  
+  hosts: 192.168.56.108
+  become: yes
+  tasks:
+    - yum:
+        name: notapkg
+        state: latest
+
+- name: Latest version of gnutls is installed
+  become: yes
+  hosts: 192.168.56.108
+  tasks: 
+    - yum:
+        name: gnutls
+        state: latest
+

@@ -1,0 +1,7 @@
+---
+- name: copy file
+  hosts: 192.168.56.108
+  tasks:
+    - copy:
+        src: fileB
+        dest: /home/oracle/fileB

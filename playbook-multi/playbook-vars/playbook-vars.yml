@@ -1,0 +1,13 @@
+---
+- hosts: all
+  vars:
+    user: user01
+    home: /home/user01
+  tasks: 
+    - name: print user variable
+      debug:
+        var: user
+
+    - name: print home variable
+      debug:
+        var: home

@@ -1,0 +1,9 @@
+---
+- name: user check
+  hosts: 192.168.56.108
+  tasks:
+   - name: user exists with uid 1000
+     user:
+       name: user
+       uid: 1000
+       state: present

@@ -1,0 +1,11 @@
+---
+- name: Render jinja loop test
+  hosts: 192.168.56.108
+  gather_facts: no
+  tasks:
+    - name: Render jinja template
+      template:
+        src: jinja-if.j2
+        dest: rednered_template_if.txt
+      vars:
+        my_variable: "condition"

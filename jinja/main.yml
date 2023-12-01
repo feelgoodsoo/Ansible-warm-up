@@ -1,0 +1,8 @@
+---
+- name: Install and Restart servers
+  hosts: 192.168.56.108
+  tasks:
+    - name: Include web server setup
+      include: web_server.yml
+    - name: Include db server restart
+      include: db_server.yml

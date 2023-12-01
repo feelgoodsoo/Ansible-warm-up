@@ -1,0 +1,26 @@
+---
+- name: Create user01 and configure sudo
+  hosts: all
+  tasks:
+    - name: Create user01 without password
+      user:
+        name: user01
+        createhome: yes
+        shell: /bin/bash
+        generate_ssh_key: yes  # Generate SSH keypair
+        ssh_key_bits: 2048    # Set SSH key length
+      when: not ansible_user_id == "user01"  # Ensure we don't run this if user01 already exists
+
+    - name: Configure sudoers for user01
+      lineinfile:
+        dest: /etc/sudoers.d/user01
+        line: "user01 ALL=(ALL) NOPASSWD:ALL"
+      when: not ansible_user_id == "user01"  # Ensure we don't run this if user01 already exists
+
+    - name: Copy id_rsa.pub to user01's home directory
+      copy:
+        src: /root/.ssh/id_rsa.pub
+        dest: /home/user01/.ssh/authorized_keys
+        remote_src: yes
+      when: not ansible_user_id == "user01"  # Ensure we don't run this if user01 already exists
+

@@ -1,0 +1,8 @@
+---
+- name: play to setup web server
+  hosts: 192.168.56.108
+  tasks:
+   - name: latest httpd version installed
+     yum:
+       name: httpd
+       state: latest

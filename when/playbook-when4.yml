@@ -1,0 +1,24 @@
+---
+- name: and or test
+  hosts: localhost
+  vars:
+    - A: "a"
+    - B: "b"
+  tasks:
+    - name: and test1
+      debug:
+        msg: >
+          "This is working"
+      when: A=="a" and B=="c"
+
+    - name: and test2
+      debug:
+        msg: >
+          "This is working"
+      when: A=="a" and B=="c"
+
+    - name: or test1
+      debug:
+        msg: >
+          "This is working"
+      when: A=="a" and B=="c"

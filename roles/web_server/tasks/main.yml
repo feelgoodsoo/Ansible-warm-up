@@ -1,0 +1,10 @@
+---
+- name: Ensure Apache is installed
+  package:
+    name: httpd
+    state: latest
+
+- name: Ensure Apache service is restarted
+  service:
+    name: httpd
+    state: restarted

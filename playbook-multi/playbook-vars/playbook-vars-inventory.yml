@@ -1,0 +1,8 @@
+---
+- name: inventory vars check
+  hosts: all
+  tasks:
+    - name: vars check
+      debug:
+        var: hostname
+

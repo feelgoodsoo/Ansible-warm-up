@@ -1,0 +1,8 @@
+---
+- name: Fact Check
+  hosts: 192.168.56.108
+  tasks:
+    - name: Print specific facts
+      debug:
+        msg: >
+         The defaults IPv4 address of {{ansible_facts['fqdn']}} is {{ansible_facts.default_ipv4.address}}

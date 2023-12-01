@@ -1,0 +1,7 @@
+---
+- name: file attribute change
+  hosts: 192.168.56.108
+  tasks:
+    - file:
+        path: /home/oracle/fileFromMaster
+        setype: samba_share_t

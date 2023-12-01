@@ -1,0 +1,4 @@
+--- 
+- name: This play gather no facts automatically
+  hosts: 192.168.56.108
+  gather_facts: no

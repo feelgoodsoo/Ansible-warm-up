@@ -1,0 +1,9 @@
+---
+- name: httpd and mariadb are running
+  hosts: 192.168.56.108
+  tasks:
+    - service:
+        name: "{{ item }}"
+      loop:
+        -httpd
+        -mariadb

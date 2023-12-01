@@ -1,0 +1,30 @@
+---
+- name: first play
+  hosts: localhost
+  remote_user: oracle
+  become: yes
+  tasks:
+    - name: httpd install
+      yum:
+        name: httpd
+        state: present
+
+    - name: httpd enable
+      service:
+        name: httpd
+        enabled: true
+
+- name: second play
+  hosts: 192.168.56.108
+  remote_user: root
+  tasks:
+    - name: maria db install
+      yum:
+        name: mariadb-server
+        state: latest
+
+    - name: mariadb enable
+      service:
+        name: mariadb
+        enabled: true
+      

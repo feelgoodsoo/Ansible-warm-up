@@ -1,0 +1,7 @@
+---
+- name: fetch file
+  hosts: 192.168.56.108
+  tasks:
+    - fetch:
+        src: /home/oracle/fileC
+        dest: fileC

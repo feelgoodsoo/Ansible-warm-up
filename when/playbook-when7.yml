@@ -1,0 +1,18 @@
+---
+- name: Restart httpd if httpd is running
+  hosts: 192.168.56.108
+  tasks:
+    - name: Get httpd server status
+      command: /usr/bin/systemctl is-active httpd
+      ignore_errors: yes
+      register: result
+
+- name: Restart Apache HTTPD based on httpd status
+  hosts: 192.168.56.108
+  become: yes
+  tasks:
+    - service:
+        name: httpd
+        state: restarted
+      when: result.rc == 0
+

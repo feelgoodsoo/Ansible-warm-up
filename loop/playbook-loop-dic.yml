@@ -1,0 +1,15 @@
+---
+- name: user group check
+  hosts: 192.168.56.108
+  tasks:
+    - user:
+        name: "{{ item.name }}"
+        group: "{{ item.group }}"
+        state: present
+
+      loop:
+        - name: user
+          group: user
+        - name: user01
+          group: user01
+
